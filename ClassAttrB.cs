@@ -1,16 +1,8 @@
-﻿using Autodesk.AutoCAD.DatabaseServices;
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AutocadCursovoi_19_12_2023
+﻿namespace ACADCommands
 {
     public class ClassAttrB
     {
-        public int id {  get; set; }
+        public int id { get; set; }
         public string BlockHandle { get; set; } = "BlockHandle";
         public string BlockName { get; set; } = "BlockName";
         public string BlockAttrVal { get; set; } = "BlockAttrVal";
@@ -19,7 +11,7 @@ namespace AutocadCursovoi_19_12_2023
         public string BlockZ { get; set; } = "BlockZ";
         public string BlockLayer { get; set; } = "BlockLayer";
         public ClassAttrB() { }
-        public ClassAttrB(string BH, string BN, string BAV, string BX, string BY, string BZ, string BL) 
+        public ClassAttrB(string BH, string BN, string BAV, string BX, string BY, string BZ, string BL)
         {
             BlockHandle = BH;
             BlockName = BN;

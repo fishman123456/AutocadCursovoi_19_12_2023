@@ -20,12 +20,12 @@ namespace ACADCommands
             // сохраняем текст в файл
             try
             {
-            // полная перезапись файла 
-            using (StreamWriter writer = new StreamWriter(path, false))
-            {
+                // полная перезапись файла 
+                using (StreamWriter writer = new StreamWriter(path, false))
+                {
                     // асинхронная перезапись  файла
-                await writer.WriteAsync(text);
-            }
+                    await writer.WriteAsync(text);
+                }
                 // добавление в файл
                 //using (StreamWriter writer = new StreamWriter(path, true))
                 //{

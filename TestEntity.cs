@@ -1,21 +1,10 @@
-﻿using AutocadCursovoi_19_12_2023;
+﻿using System.Windows;
 
-using Autodesk.AutoCAD.Runtime;
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-
-[assembly: CommandClass(typeof(ACADCommands.TestEntity))]
 
 namespace ACADCommands
 {
     public class TestEntity
     {
-        [CommandMethod("ListENTITYtest")]
 
         public void entFirst()
         {
@@ -33,6 +22,6 @@ namespace ACADCommands
 
 
         }
-        
+
     }
 }

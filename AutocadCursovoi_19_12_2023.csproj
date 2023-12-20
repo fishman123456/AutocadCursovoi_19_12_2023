@@ -67,7 +67,9 @@
     <Compile Include="CheckDateWork.cs" />
     <Compile Include="ClassAttrB.cs" />
     <Compile Include="ClassEntity.cs" />
-    <Compile Include="GetAtSaveCSV.cs" />
+    <Compile Include="GetAtSaveCSV.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SaveCSV.cs" />
     <Compile Include="TestEntity.cs" />
