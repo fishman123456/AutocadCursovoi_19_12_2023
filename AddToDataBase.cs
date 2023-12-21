@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Autodesk.AutoCAD.DatabaseServices;
+
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
@@ -13,10 +15,10 @@ namespace ACADCommands
 {
     // в классе создать методы которые принимают список
     // и сохраняют в базу данных
-    // строка соединения находится в appconfig-нифига 10-12-2023 22:38 воскресенье
+    // строка соединения находится в appconfig-нифига 21-12-2023 20:23 - четверг
     // реализованно с помощью ADO NET
-    // добавляем кабельный журнал в базу
-    // 1 - имя кабеля; 2 - Откуда; 3 - Куда;
+    // добавляем данные с чертежа  в базу
+    // 1 - метка блока, 2 - имя кабеля, 3-4-5 координаты блока x,y,z  6 - слой в котором находится блок;
     public class AddToDataBase
     {
         public void metodAddDB(string listStrings)
@@ -24,22 +26,31 @@ namespace ACADCommands
             string connetionString = null;
             string sql = null;
             string sqlCreateTable = null;
+            string sqlDropTable = null;
             // строка для соединения с базой данных 
             // для работы Data Source = FISHMAN
             // для дома Data Source = fishman\SQLEXPRESS
-            connetionString = @"Data Source = FISHMAN;
-                                Initial Catalog = mytest_db;
+            connetionString = @"Data Source = fishman\SQLEXPRESS;
+                                Initial Catalog = AcadBlock_db;
                                 Integrated Security = SSPI;
                                 TrustServerCertificate = True";
-
+            //Строка для удаления таблицы
+            sqlDropTable = "DROP TABLE DataBlock_t";
             //Строка для создания таблицы
-            sqlCreateTable = "CREATE TABLE Main_t" +
+            sqlCreateTable = "CREATE TABLE DataBlock_t" +
                 " (Id INT PRIMARY KEY IDENTITY," +
-                " Cable_f NVARCHAR(100) NOT NULL," +
-                " Beg_f NVARCHAR(100) NOT NULL," +
-                " End_f NVARCHAR(100) NOT NULL)";
+                " Handl_f NVARCHAR(100) NOT NULL," +
+                " BlockName_f NVARCHAR(100) NOT NULL," +
+                " CableName_f NVARCHAR(100) NOT NULL," +
+                " BlockX_f NVARCHAR(100) NOT NULL," +
+                " BlockY_f NVARCHAR(100) NOT NULL," +
+                " BlockZ_f NVARCHAR(100) NOT NULL," +
+                " LayerName_f NVARCHAR(100) NOT NULL)";
             // запрос на вставку в таблицу данных двух столбцов
-            sql = "insert into Main_t ([Cable_f], [Beg_f], [End_f]) values(@cable,@beg,@end)";
+            sql = "insert into DataBlock_t ([Handl_f], [BlockName_f], [CableName_f], [BlockX_f]," +
+                " [BlockY_f], [BlockZ_f], [LayerName_f])" +
+                " values(@handl_f, @blockName_f, @cableName, @blockX_f," +
+                "@blockY_f, @blockZ_f, @layerName_f )";
             // разделитель по строкам для заполнения списка
             string[] separator = { "\n", "\r" };
             // добавляем данные в список 
@@ -67,11 +78,16 @@ namespace ACADCommands
                         // выполняем команду, записываем строки в базу данных
                         using (SqlCommand cmd = new SqlCommand(sql, cnn))
                         {
-
+                            // @handl_f, @blockName_f, @blockX_f,
+                            // @blockY_f], @blockZ_f, @layerName_f
                             // получение и установка параметров для передачи в sql запрос
-                            cmd.Parameters.Add("@cable", SqlDbType.NVarChar).Value = "55";
-                            cmd.Parameters.Add("@beg", SqlDbType.NVarChar).Value = "66";
-                            cmd.Parameters.Add("@end", SqlDbType.NVarChar).Value = "44";
+                            cmd.Parameters.Add("@handl_f", SqlDbType.NVarChar).Value = list[0].ToString();
+                            cmd.Parameters.Add("@blockName_f", SqlDbType.NVarChar).Value = list[1].ToString();
+                            cmd.Parameters.Add("@cableName", SqlDbType.NVarChar).Value = list[2].ToString();
+                            cmd.Parameters.Add("@blockX_f", SqlDbType.NVarChar).Value = list[3].ToString();
+                            cmd.Parameters.Add("@blockY_f", SqlDbType.NVarChar).Value = list[4].ToString();
+                            cmd.Parameters.Add("@blockZ_f", SqlDbType.NVarChar).Value = list[5].ToString();
+                            cmd.Parameters.Add("@layerName_f", SqlDbType.NVarChar).Value = list[6].ToString();
 
                             // Let's ask the db to execute the query
                             // Давайте попросим базу данных выполнить запрос

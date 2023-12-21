@@ -22,18 +22,19 @@ namespace ACADCommands
         [CommandMethod("CSV")]
         public static void ListAttrSaveCSV()
         {
-            AddToDataBase addToDataBase = new AddToDataBase();
-            addToDataBase.metodAddDB("666\n666\n999\n");
-            Process process = Process.Start("\"C:\\Users\\Fishman\\Documents\\GitHub\\EntityTest-19-12-2023\\bin\\Debug\\EntityTest-19-12-2023.exe\"");
-            ClassAttrB classAttrB = new ClassAttrB();
-            classAttrB.ent();
+            // проверка по текущей дате
             CheckDateWork.CheckDate();
             // строка для сохранения в csv
             //StringBuilder stringBuilder = new StringBuilder();
+            // Открываем для редактирования документ
             Editor ed = Application.DocumentManager.MdiActiveDocument.Editor;
-
+            // Открываем базу данных чертежа
             Database db = HostApplicationServices.WorkingDatabase;
-
+            // строка соединения с базой данных
+            ed.WriteMessage("Data Source = fishman\\SQLEXPRESS;" +
+                "Initial Catalog = AcadBlock_db;" +
+                "Integrated Security = SSPI;" +
+                "TrustServerCertificate = True");
             Transaction tr = db.TransactionManager.StartTransaction();
             // Start the transaction
             try
@@ -103,6 +104,8 @@ namespace ACADCommands
                 // запишем в файл
                 SaveCSV saveFileCSV = new SaveCSV();
                 saveFileCSV.saveCSV(stringBuilder.ToString());
+                AddToDataBase addToDataBase = new AddToDataBase();
+                addToDataBase.metodAddDB(stringBuilder.ToString());
             }
         }
     }
