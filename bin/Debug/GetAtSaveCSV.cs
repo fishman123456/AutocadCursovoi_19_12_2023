@@ -22,6 +22,8 @@ namespace ACADCommands
         [CommandMethod("CSV")]
         public static void ListAttrSaveCSV()
         {
+            AddToDataBase addToDataBase = new AddToDataBase();
+            addToDataBase.metodAddDB("666\n666\n999\n");
             Process process = Process.Start("\"C:\\Users\\Fishman\\Documents\\GitHub\\EntityTest-19-12-2023\\bin\\Debug\\EntityTest-19-12-2023.exe\"");
             ClassAttrB classAttrB = new ClassAttrB();
             classAttrB.ent();

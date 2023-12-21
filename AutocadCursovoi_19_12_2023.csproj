@@ -73,6 +73,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddToDataBase.cs" />
     <Compile Include="CheckDateWork.cs" />
     <Compile Include="EntityAddObject.cs" />
     <Compile Include="GetAtSaveCSV.cs">
