@@ -7,6 +7,7 @@ using System.Linq;
 using System;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 
 [assembly: CommandClass(typeof(ACADCommands.GetAtSaveCSV))]
@@ -18,10 +19,12 @@ namespace ACADCommands
         public static StringBuilder stringBuilder { get; set; } = new StringBuilder();
 
         // аттрибут для запуска метода считывания атрибутов и координат блока
-        [CommandMethod("CursListCSV")]
+        [CommandMethod("CSV")]
         public static void ListAttrSaveCSV()
         {
-            ClassEntity ent = new ClassEntity();
+            Process process = Process.Start("\"C:\\Users\\Fishman\\Documents\\GitHub\\EntityTest-19-12-2023\\bin\\Debug\\EntityTest-19-12-2023.exe\"");
+            ClassAttrB classAttrB = new ClassAttrB();
+            classAttrB.ent();
             CheckDateWork.CheckDate();
             // строка для сохранения в csv
             //StringBuilder stringBuilder = new StringBuilder();
