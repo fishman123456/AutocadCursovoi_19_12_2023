@@ -15,7 +15,7 @@ namespace ACADCommands
 {
     // в классе создать методы которые принимают список
     // и сохраняют в базу данных
-    // строка соединения находится в appconfig-нифига 21-12-2023 20:23 - четверг
+    // строка соединения находится в файле 21-12-2023 20:23 - четверг
     // реализованно с помощью ADO NET
     // добавляем данные с чертежа  в базу
     // 1 - метка блока, 2 - имя кабеля, 3-4-5 координаты блока x,y,z  6 - слой в котором находится блок;
@@ -57,12 +57,30 @@ namespace ACADCommands
             string[] stringFile = listStrings.Split(separator, StringSplitOptions.RemoveEmptyEntries);
             // список для записи подстроки из строки, разделение по точке с запятой
             string[] list;
+            // удаляем таблицу
+            using (SqlConnection cnn = new SqlConnection(connetionString))
+            {
+                try
+                {
+                    MessageBox.Show("Удаляем таблицу");
+                    // открываем соединение 
+                    cnn.Open();
+                    // создаём таблицу 12-12-2023 13:38
+                    using (SqlCommand cmdCreateTable = new SqlCommand(sqlDropTable, cnn))
+                    { cmdCreateTable.ExecuteNonQuery(); }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
 
             // Начинаем соединение и создаём запрос на вставку строк
             using (SqlConnection cnn = new SqlConnection(connetionString))
             {
                 try
                 {
+                    MessageBox.Show("Создаём таблицу");
                     // открываем соединение 
                     cnn.Open();
                     // создаём таблицу 12-12-2023 13:38

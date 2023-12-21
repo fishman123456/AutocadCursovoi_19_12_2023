@@ -18,8 +18,6 @@ D:\Github\AutocadCursovoi_19_12_2023\bin\Debug\AutocadCursovoi_19_12_2023.pdb
 D:\Github\AutocadCursovoi_19_12_2023\bin\Debug\accoremgd.dll
 D:\Github\AutocadCursovoi_19_12_2023\bin\Debug\acdbmgd.dll
 D:\Github\AutocadCursovoi_19_12_2023\bin\Debug\acmgd.dll
-D:\Github\AutocadCursovoi_19_12_2023\bin\Debug\EntityFramework.dll
-D:\Github\AutocadCursovoi_19_12_2023\bin\Debug\EntityFramework.SqlServer.dll
 D:\Github\AutocadCursovoi_19_12_2023\bin\Debug\AdUiPalettes.dll
 D:\Github\AutocadCursovoi_19_12_2023\bin\Debug\AcDx.dll
 D:\Github\AutocadCursovoi_19_12_2023\bin\Debug\AcDxPublishUi.dll
@@ -38,8 +36,6 @@ D:\Github\AutocadCursovoi_19_12_2023\bin\Debug\Autodesk.DesktopConnector.API.dll
 D:\Github\AutocadCursovoi_19_12_2023\bin\Debug\Serilog.dll
 D:\Github\AutocadCursovoi_19_12_2023\bin\Debug\Serilog.Sinks.File.dll
 D:\Github\AutocadCursovoi_19_12_2023\bin\Debug\Autodesk.AutoCAD.Interop.Common.dll
-D:\Github\AutocadCursovoi_19_12_2023\bin\Debug\EntityFramework.xml
-D:\Github\AutocadCursovoi_19_12_2023\bin\Debug\EntityFramework.SqlServer.xml
 D:\Github\AutocadCursovoi_19_12_2023\bin\Debug\ru-RU\acdbmgd.resources.dll
 D:\Github\AutocadCursovoi_19_12_2023\bin\Debug\ru-RU\AcDx.resources.dll
 D:\Github\AutocadCursovoi_19_12_2023\bin\Debug\ru-RU\AcDxPublishUi.resources.dll

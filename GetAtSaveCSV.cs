@@ -31,10 +31,11 @@ namespace ACADCommands
             // Открываем базу данных чертежа
             Database db = HostApplicationServices.WorkingDatabase;
             // строка соединения с базой данных
-            ed.WriteMessage("Data Source = fishman\\SQLEXPRESS;" +
-                "Initial Catalog = AcadBlock_db;" +
-                "Integrated Security = SSPI;" +
-                "TrustServerCertificate = True");
+            ed.WriteMessage("\n\nстрока соединения с базой данных\n" +
+                "Data Source = Имя сервера;\n" +
+                "Initial Catalog = AcadBlock_db;\n" +
+                "Integrated Security = SSPI;\n" +
+                "TrustServerCertificate = True\n\n");
             Transaction tr = db.TransactionManager.StartTransaction();
             // Start the transaction
             try
@@ -52,26 +53,30 @@ namespace ACADCommands
                 SelectionSet selSet = res.Value;
                 // добавляем в массив выбранные обьекты
                 ObjectId[] idArray = selSet.GetObjectIds();
-
+                // переменная для ко-ва блоков
+                int countBlock = 0;
                 // перебираем блоки
                 foreach (ObjectId blkId in idArray)
                 {
+                    
                     // ссылки на блоки
                     BlockReference blkRef = (BlockReference)tr.GetObject(blkId, OpenMode.ForRead);
                     // ссылка на таблицу блоков
                     BlockTableRecord btr = (BlockTableRecord)tr.GetObject(blkRef.BlockTableRecord, OpenMode.ForRead);
                     // берем коллекцию атрибутов по ссылкам на блоки
                     AttributeCollection attCol = blkRef.AttributeCollection;
+                    
                     // перебираем аттрибуты
                     foreach (ObjectId blkAttId in attCol)
                     // btr.Dispose();
                     {
                         AttributeReference attRef = (AttributeReference)tr.GetObject(blkAttId, OpenMode.ForRead);
                         // btr.Dispose();
-
+                       
                         //  выводим координаты блока,слой и handle
                         if (attRef.Tag == "ОБОЗНАЧ_КАБЕЛЯ" && attRef.TextString != "")
                         {
+                            countBlock++;
                             string str = ("\n" +
                                            //"Handle BlockRef : " + 
                                            blkRef.Handle.ToString() + ";" + // вот нужная фигня - Handle
@@ -93,6 +98,7 @@ namespace ACADCommands
                     }
                 }
                 tr.Commit();
+                ed.WriteMessage($"\nКол-во блоков с аттрибутом = {countBlock}\n{DateTime.Now.ToString()}\n");
             }
             catch (Autodesk.AutoCAD.Runtime.Exception ex)
             {
