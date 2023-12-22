@@ -113,8 +113,8 @@ namespace ACADCommands
                 // запишем в файл
                 // диалог с вызовом сохранения в *.csv
                 #region
-                string sMessageBoxTextc = "Сохранить в базу данных ?";
-                string sCaptionc = "Используйте если у вас установлен microsoft sql server";
+                string sMessageBoxTextc = "Сохранить в *.csv ?";
+                string sCaptionc = "Используйте если у вас установлен microsoft office";
                 MessageBoxButton btnMessageBoxc = MessageBoxButton.YesNoCancel;
                 MessageBoxImage icnMessageBoxc = MessageBoxImage.Warning;
                 MessageBoxResult rsltMessageBoxc = MessageBox.Show(sMessageBoxTextc, sCaptionc, btnMessageBoxc, icnMessageBoxc);
