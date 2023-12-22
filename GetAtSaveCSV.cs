@@ -8,6 +8,9 @@ using System;
 using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
+using System.Windows;
+using Application = Autodesk.AutoCAD.ApplicationServices.Application;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 
 [assembly: CommandClass(typeof(ACADCommands.GetAtSaveCSV))]
@@ -108,10 +111,49 @@ namespace ACADCommands
             {
                 tr.Dispose();
                 // запишем в файл
-                SaveCSV saveFileCSV = new SaveCSV();
-                saveFileCSV.saveCSV(stringBuilder.ToString());
-                AddToDataBase addToDataBase = new AddToDataBase();
-                addToDataBase.metodAddDB(stringBuilder.ToString());
+                // диалог с вызовом сохранения в *.csv
+                #region
+                string sMessageBoxTextc = "Сохранить в базу данных ?";
+                string sCaptionc = "Используйте если у вас установлен microsoft sql server";
+                MessageBoxButton btnMessageBoxc = MessageBoxButton.YesNoCancel;
+                MessageBoxImage icnMessageBoxc = MessageBoxImage.Warning;
+                MessageBoxResult rsltMessageBoxc = MessageBox.Show(sMessageBoxTextc, sCaptionc, btnMessageBoxc, icnMessageBoxc);
+                switch (rsltMessageBoxc)
+                {
+                    case MessageBoxResult.Yes:
+                        SaveCSV saveFileCSV = new SaveCSV();
+                        saveFileCSV.saveCSV(stringBuilder.ToString());
+                        break;
+                    case MessageBoxResult.No:
+                        /* ... */
+                        break;
+                    case MessageBoxResult.Cancel:
+                        /* ... */
+                        break;
+                }
+                #endregion
+               
+                // диалог с вызовом сохранения в базу данных
+                #region
+                string sMessageBoxText = "Сохранить в базу данных ?";
+                string sCaption = "Используйте если у вас установлен microsoft sql server";
+                MessageBoxButton btnMessageBox = MessageBoxButton.YesNoCancel;
+                MessageBoxImage icnMessageBox = MessageBoxImage.Warning;
+                MessageBoxResult rsltMessageBox = MessageBox.Show(sMessageBoxText, sCaption, btnMessageBox, icnMessageBox);
+                switch (rsltMessageBox)
+                {
+                    case MessageBoxResult.Yes:
+                        AddToDataBase addToDataBase = new AddToDataBase();
+                        addToDataBase.metodAddDB(stringBuilder.ToString());
+                        break;
+                    case MessageBoxResult.No:
+                        /* ... */
+                        break;
+                    case MessageBoxResult.Cancel:
+                        /* ... */
+                        break;
+                }
+                #endregion
             }
         }
     }
