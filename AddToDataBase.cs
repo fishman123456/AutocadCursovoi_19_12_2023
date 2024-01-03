@@ -30,7 +30,7 @@ namespace ACADCommands
             // строка для соединения с базой данных 
             // для работы Data Source = FISHMAN
             // для дома Data Source = fishman\SQLEXPRESS
-            connetionString = @"Data Source = FISHMAN;
+            connetionString = @"Data Source = fishman\SQLEXPRESS;
                                 Initial Catalog = AcadBlock_db;
                                 Integrated Security = SSPI;
                                 TrustServerCertificate = True";
