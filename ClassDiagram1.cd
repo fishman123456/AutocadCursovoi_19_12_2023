@@ -14,11 +14,11 @@
       <FileName>CheckDateWork.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ACADCommands.GetAtSaveCSV">
+  <Class Name="ACADCommands.GetBlockPoz">
     <Position X="9.25" Y="1.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ACAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>GetAtSaveCSV.cs</FileName>
+      <FileName>GetBlockPoz.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ACADCommands.SaveCSV">

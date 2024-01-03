@@ -62,7 +62,7 @@
   <ItemGroup>
     <Compile Include="AddToDataBase.cs" />
     <Compile Include="CheckDateWork.cs" />
-    <Compile Include="GetAtSaveCSV.cs">
+    <Compile Include="GetBlockPoz.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

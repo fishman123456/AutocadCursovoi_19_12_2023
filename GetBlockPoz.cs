@@ -13,11 +13,11 @@ using Application = Autodesk.AutoCAD.ApplicationServices.Application;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 
-[assembly: CommandClass(typeof(ACADCommands.GetAtSaveCSV))]
+[assembly: CommandClass(typeof(ACADCommands.GetBlockPoz))]
 
 namespace ACADCommands
 {
-    public class GetAtSaveCSV
+    public class GetBlockPoz
     {
         public static StringBuilder stringBuilder { get; set; } = new StringBuilder();
 
