@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Autodesk.AutoCAD.DatabaseServices;
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +22,26 @@ namespace AutocadCursovoi_19_12_2023
     /// </summary>
     public partial class WPF : Window
     {
-        public WPF()
+        public List<string> stringsdata;
+        public WPF(List<string> strings)
         {
             InitializeComponent();
+            stringsdata = strings;
+        }
+        private void grid_Loaded(object sender, RoutedEventArgs e)
+        {
+            List<string> strings;
+            
+            foreach (string s in stringsdata)
+            {
+                grid.Text += s;
+            }
+        }
+        private void grid_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            ////stringsdata path = grid.SelectedItem as MyTable;
+            //MessageBox.Show(" ID: " + path.Id + "\n Исполнитель: " + path.Vocalist + "\n Альбом: " + path.Album
+            //    + "\n Год: " + path.Year);
         }
     }
 }

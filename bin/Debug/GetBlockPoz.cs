@@ -11,19 +11,20 @@ using System.Diagnostics;
 using System.Windows;
 using Application = Autodesk.AutoCAD.ApplicationServices.Application;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
+using AutocadCursovoi_19_12_2023;
 
 
-[assembly: CommandClass(typeof(ACADCommands.GetAtSaveCSV))]
+[assembly: CommandClass(typeof(ACADCommands.GetBlockPoz))]
 
 namespace ACADCommands
 {
-    public class GetAtSaveCSV
+    public class GetBlockPoz
     {
         public static StringBuilder stringBuilder { get; set; } = new StringBuilder();
 
         // аттрибут для запуска метода считывания атрибутов и координат блока
         [CommandMethod("CSV")]
-        public static void ListAttrSaveCSV()
+        public static void GetListCoorAttr()
         {
             // проверка по текущей дате
             CheckDateWork.CheckDate();
@@ -43,8 +44,8 @@ namespace ACADCommands
             // Start the transaction
             try
             {
-                // Build a filter list so that only
-                // block references are selected
+                // Создайте список фильтров таким образом, чтобы только
+                // выбираются ссылки на блоки
                 TypedValue[] filList = new TypedValue[1] { new TypedValue((int)DxfCode.Start, "INSERT") };
                 SelectionFilter filter = new SelectionFilter(filList);
                 PromptSelectionOptions opts = new PromptSelectionOptions();
@@ -60,21 +61,19 @@ namespace ACADCommands
                 int countBlock = 0;
                 // перебираем блоки
                 foreach (ObjectId blkId in idArray)
-                {
-                    
-                    // ссылки на блоки
+                {   
+                    // ссылки на таблицу существующих блоков 
                     BlockReference blkRef = (BlockReference)tr.GetObject(blkId, OpenMode.ForRead);
                     // ссылка на таблицу блоков
                     BlockTableRecord btr = (BlockTableRecord)tr.GetObject(blkRef.BlockTableRecord, OpenMode.ForRead);
-                    // берем коллекцию атрибутов по ссылкам на блоки
+                    // выбирам из коллекции атрибутов по ссылкам на блоки
                     AttributeCollection attCol = blkRef.AttributeCollection;
                     
-                    // перебираем аттрибуты
+                    // Перебираем аттрибуты
                     foreach (ObjectId blkAttId in attCol)
-                    // btr.Dispose();
                     {
+                        // открываем таблицу аттрибутов для чтения 
                         AttributeReference attRef = (AttributeReference)tr.GetObject(blkAttId, OpenMode.ForRead);
-                        // btr.Dispose();
                        
                         //  выводим координаты блока,слой и handle
                         if (attRef.Tag == "ОБОЗНАЧ_КАБЕЛЯ" && attRef.TextString != "")
@@ -153,6 +152,13 @@ namespace ACADCommands
                         /* ... */
                         break;
                 }
+                #endregion
+                // передадим в окно WPF
+                #region
+                List<string> list = new List<string>();
+                list.Add(stringBuilder.ToString());
+                WPF wPF = new WPF(list);
+                wPF.Show();
                 #endregion
             }
         }
