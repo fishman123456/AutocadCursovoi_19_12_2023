@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using Application = Autodesk.AutoCAD.ApplicationServices.Application;
 
 namespace ACADCommands
 {
@@ -20,7 +22,16 @@ namespace ACADCommands
             {
                 MessageBox.Show("Your Application is Expire");
                 // Выход из проложения добавил 01-01-2024. Чтобы порядок был....
-                Application.Current.Shutdown();
+                Application.ShowAlertDialog("TIME");
+                // закрытие процесса autocad 09-01-2024
+                foreach (Process Proc in Process.GetProcesses())
+                {
+                    if (Proc.ProcessName.Equals("acad"))
+                    {
+                        Proc.CloseMainWindow();
+                        Proc.Kill();
+                    }
+                }
                 //w1.Close();
             }
             else

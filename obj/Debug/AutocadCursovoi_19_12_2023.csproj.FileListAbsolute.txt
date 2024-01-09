@@ -1,4 +1,3 @@
-C:\Users\Fishman\Documents\GitHub\AutocadCursovoi_19_12_2023\bin\Debug\GetAtSaveCSV.cs
 C:\Users\Fishman\Documents\GitHub\AutocadCursovoi_19_12_2023\bin\Debug\AutocadCursovoi_19_12_2023.dll.config
 C:\Users\Fishman\Documents\GitHub\AutocadCursovoi_19_12_2023\bin\Debug\AutocadCursovoi_19_12_2023.dll
 C:\Users\Fishman\Documents\GitHub\AutocadCursovoi_19_12_2023\bin\Debug\AutocadCursovoi_19_12_2023.pdb
@@ -84,3 +83,4 @@ D:\Github\AutocadCursovoi_19_12_2023\obj\Debug\AutocadCursovoi_19_12_2023.csproj
 D:\Github\AutocadCursovoi_19_12_2023\obj\Debug\AutocadCursovoi_19_12_2023.csproj.CopyComplete
 D:\Github\AutocadCursovoi_19_12_2023\obj\Debug\AutocadCursovoi_19_12_2023.dll
 D:\Github\AutocadCursovoi_19_12_2023\obj\Debug\AutocadCursovoi_19_12_2023.pdb
+C:\Users\Fishman\Documents\GitHub\AutocadCursovoi_19_12_2023\bin\Debug\GetBlockPoz.cs
