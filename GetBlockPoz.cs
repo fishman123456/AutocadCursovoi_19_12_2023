@@ -26,6 +26,10 @@ namespace ACADCommands
         [CommandMethod("CSV")]
         public static void GetListCoorAttr()
         {
+            // класс сохранения чертежа
+            QuickSaveAsDWG quickSave = new QuickSaveAsDWG();
+            // метод сохранения чертежа
+            quickSave.QuickSaveAs();
             // проверка по текущей дате
             CheckDateWork.CheckDate();
             // строка для сохранения в csv

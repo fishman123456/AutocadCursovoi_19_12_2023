@@ -66,6 +66,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QuickSaveAs.cs" />
     <Compile Include="SaveCSV.cs" />
     <Compile Include="WPF.xaml.cs">
       <DependentUpon>WPF.xaml</DependentUpon>

@@ -14,8 +14,9 @@ namespace ACADCommands
     {
         public static void CheckDate()
         {
+
             DateTime dt1 = DateTime.Now;
-            DateTime dt2 = DateTime.Parse("20/01/2024");
+            DateTime dt2 = DateTime.Parse("20/03/2024");
             Window w1 = new Window();
 
             if (dt1.Date > dt2.Date)

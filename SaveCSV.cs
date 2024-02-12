@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AutocadCursovoi_19_12_2023;
+using System;
 using System.IO;
 using System.Windows.Forms;
 
@@ -8,6 +9,8 @@ namespace ACADCommands
     {
         public async void saveCSV(string text)
         {
+            
+            // проверка по текущей дате
             CheckDateWork.CheckDate();
             // открываем диалог для сохранения файла в поток
             System.Windows.Forms.SaveFileDialog saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
