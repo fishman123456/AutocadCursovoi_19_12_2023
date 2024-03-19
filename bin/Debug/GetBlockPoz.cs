@@ -78,9 +78,10 @@ namespace ACADCommands
                     {
                         // открываем таблицу аттрибутов для чтения 
                         AttributeReference attRef = (AttributeReference)tr.GetObject(blkAttId, OpenMode.ForRead);
-                       
+
                         //  выводим координаты блока,слой и handle
-                        if (attRef.Tag == "ОБОЗНАЧ_КАБЕЛЯ" && attRef.TextString != "")
+                        //if (attRef.Tag == "ОБОЗНАЧ_КАБЕЛЯ" && attRef.TextString != "")
+                        if (attRef.Tag == "НАИМЕНОВАНИЕ" && attRef.TextString != "")
                         {
                             countBlock++;
                             string str = ("\n" +

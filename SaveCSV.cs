@@ -1,4 +1,5 @@
 ﻿using AutocadCursovoi_19_12_2023;
+
 using System;
 using System.IO;
 using System.Windows.Forms;
@@ -9,7 +10,6 @@ namespace ACADCommands
     {
         public async void saveCSV(string text)
         {
-            
             // проверка по текущей дате
             CheckDateWork.CheckDate();
             // открываем диалог для сохранения файла в поток
@@ -29,12 +29,6 @@ namespace ACADCommands
                     // асинхронная перезапись  файла
                     await writer.WriteAsync(text);
                 }
-                // добавление в файл
-                //using (StreamWriter writer = new StreamWriter(path, true))
-                //{
-                //    await writer.WriteLineAsync("Addition");
-                //    await writer.WriteAsync("4,5");
-                //}
             }
             catch (Exception ex)
             {

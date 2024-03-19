@@ -38,7 +38,6 @@ D:\Github\AutocadCursovoi_19_12_2023\obj\Debug\AutocadCursovoi_19_12_2023_Markup
 D:\Github\AutocadCursovoi_19_12_2023\obj\Debug\WPF.baml
 D:\Github\AutocadCursovoi_19_12_2023\obj\Debug\AutocadCursovoi_19_12_2023.g.resources
 D:\Github\AutocadCursovoi_19_12_2023\obj\Debug\AutocadCursovoi_19_12_2023.csproj.CoreCompileInputs.cache
-D:\Github\AutocadCursovoi_19_12_2023\obj\Debug\AutocadCursovoi_19_12_2023.csproj.CopyComplete
 D:\Github\AutocadCursovoi_19_12_2023\obj\Debug\AutocadCursovoi_19_12_2023.dll
 D:\Github\AutocadCursovoi_19_12_2023\obj\Debug\AutocadCursovoi_19_12_2023.pdb
 C:\Users\Fishman\Documents\GitHub\AutocadCursovoi_19_12_2023\bin\Debug\GetBlockPoz.cs
@@ -84,3 +83,4 @@ C:\Users\Fishman\Documents\GitHub\AutocadCursovoi_19_12_2023\obj\Debug\AutocadCu
 C:\Users\Fishman\Documents\GitHub\AutocadCursovoi_19_12_2023\obj\Debug\AutocadCursovoi_19_12_2023.csproj.CopyComplete
 C:\Users\Fishman\Documents\GitHub\AutocadCursovoi_19_12_2023\obj\Debug\AutocadCursovoi_19_12_2023.dll
 C:\Users\Fishman\Documents\GitHub\AutocadCursovoi_19_12_2023\obj\Debug\AutocadCursovoi_19_12_2023.pdb
+D:\Github\AutocadCursovoi_19_12_2023\obj\Debug\AutocadC.2DE43234.Up2Date
