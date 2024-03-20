@@ -26,6 +26,8 @@ namespace ACADCommands
         [CommandMethod("CSV")]
         public static void GetListCoorAttr()
         {
+            // 20-03-2024 порядок аттрибутов очень важен
+            MessageBox.Show("Обязательно проверьте очередность аттрибутов");
             // класс сохранения чертежа
             QuickSaveAsDWG quickSave = new QuickSaveAsDWG();
             // метод сохранения чертежа
@@ -79,13 +81,7 @@ namespace ACADCommands
                         // открываем таблицу аттрибутов для чтения 
                         AttributeReference attRef = (AttributeReference)tr.GetObject(blkAttId, OpenMode.ForRead);
                         // для блоков на планы
-                        if (attRef.Tag == "НАИМЕНОВАНИЕ")
-                        {
-                            if (attRef.TextString == "") { stringBuilder.Append("-" + ";"); }
-                            else
-                                //"Attribute String: " + 
-                                stringBuilder.Append(attRef.TextString + ";");
-                        }
+                       
                         //  выводим координаты блока,слой и handle
                         if (attRef.Tag == "ОБОЗНАЧ_КАБЕЛЯ")
                         {
@@ -93,9 +89,15 @@ namespace ACADCommands
                                            //"Handle BlockRef : " + 
                                            blkRef.Handle.ToString() + ";" + // вот нужная фигня - Handle
                                             btr.Name + ";");               //"Block name: " имя блока
-                            stringBuilder.Append(
-                                       //"Attribute String: " + 
-                                       attRef.TextString + ";" +
+
+                            if (attRef.TextString == "") { stringBuilder.Append("NULL" + ";"); }
+                            else
+                            {
+                                //"Attribute String: " + 
+                                stringBuilder.Append( attRef.TextString + ";");
+                            }
+                                stringBuilder.Append(
+                                      
                                        //"X: " + 
                                        blkRef.Position.X.ToString() + ";" +
                                        //"Y: " + 
@@ -107,30 +109,36 @@ namespace ACADCommands
                         }
                         if (attRef.Tag == "НАЧАЛО")
                         {
-                            if(attRef.TextString == "") { stringBuilder.Append("-" + ";"); }
+                            if(attRef.TextString == "") { stringBuilder.Append("NULL" + ";"); }
                             else 
                             //"Attribute String: " + 
                             stringBuilder.Append(attRef.TextString + ";");
                         }
                         if (attRef.Tag == "КОНЕЦ")
                         {
-                            if (attRef.TextString == "") { stringBuilder.Append("-" + ";"); }
+                            if (attRef.TextString == "") { stringBuilder.Append("NULL" + ";"); }
                             else
                                 //"Attribute String: " + 
                                 stringBuilder.Append(attRef.TextString + ";");
                         }
-                        
+                        if (attRef.Tag == "НАИМЕНОВАНИЕ")
+                        {
+                            if (attRef.TextString == "") { stringBuilder.Append("NULL" + ";"); }
+                            else
+                                //"Attribute String: " + 
+                                stringBuilder.Append(attRef.TextString + ";");
+                        }
                         // для блоков схема
                         if (attRef.Tag == "Труба")
                         {
-                            if (attRef.TextString == "") { stringBuilder.Append("-" + ";"); }
+                            if (attRef.TextString == "") { stringBuilder.Append("NULL" + ";"); }
                             else
                                 //"Attribute String: " + 
                                 stringBuilder.Append(attRef.TextString + ";");
                         }
                         if (attRef.Tag == "Примечание")
                         {
-                            if (attRef.TextString == "") { stringBuilder.Append("-" + ";"); }
+                            if (attRef.TextString == "") { stringBuilder.Append("NULL" + ";"); }
                             else
                                 //"Attribute String: " + 
                                 stringBuilder.Append(attRef.TextString + ";");
