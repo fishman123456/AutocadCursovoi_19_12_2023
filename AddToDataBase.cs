@@ -30,7 +30,7 @@ namespace ACADCommands
             // строка для соединения с базой данных 
             // для работы Data Source = FISHMAN
             // для дома Data Source = fishman\SQLEXPRESS
-            connetionString = @"Data Source = FISHMAN;
+            connetionString = @"Data Source = FISHMAN\SQLEXPRESS;
                                 Initial Catalog = AcadBlock_db;
                                 Integrated Security = SSPI;
                                 TrustServerCertificate = True";
@@ -41,16 +41,23 @@ namespace ACADCommands
                 " (Id INT PRIMARY KEY IDENTITY," +
                 " Handl_f NVARCHAR(100) NOT NULL," +
                 " BlockName_f NVARCHAR(100) NOT NULL," +
-                " CableName_f NVARCHAR(100) NOT NULL," +
+                " CableName_f NVARCHAR(100) ," +
+                " CableStart_f NVARCHAR(100) ," +
+                " CableEnd_f NVARCHAR(100) ," +
+                " CableFans_f NVARCHAR(100)  ," +
+                " CableDescr_f NVARCHAR(100) , "+
                 " BlockX_f NVARCHAR(100) NOT NULL," +
                 " BlockY_f NVARCHAR(100) NOT NULL," +
                 " BlockZ_f NVARCHAR(100) NOT NULL," +
-                " LayerName_f NVARCHAR(100) NOT NULL)";
+                " LayerName_f NVARCHAR(100) NOT NULL )" ;
+
             // запрос на вставку в таблицу данных двух столбцов
-            sql = "insert into DataBlock_t ([Handl_f], [BlockName_f], [CableName_f], [BlockX_f]," +
-                " [BlockY_f], [BlockZ_f], [LayerName_f])" +
-                " values(@handl_f, @blockName_f, @cableName, @blockX_f," +
-                "@blockY_f, @blockZ_f, @layerName_f )";
+            sql = "insert into DataBlock_t ([Handl_f], [BlockName_f], [CableName_f]," +
+                 "[BlockX_f], [BlockY_f], [BlockZ_f], [LayerName_f]," +
+                "[CableStart_f], [CableEnd_f], [CableFans_f],[CableDescr_f])" +
+                " values(@handl_f, @blockName_f, @cableName_f," +
+                "@blockX_f, @blockY_f, @blockZ_f, @layerName_f, "+
+                "@cableStart_f, @cableEnd_f, @cableFans_f, @cableDescr_f)" ;
             // разделитель по строкам для заполнения списка
             string[] separator = { "\n", "\r" };
             // добавляем данные в список 
@@ -90,22 +97,29 @@ namespace ACADCommands
                     foreach (string str in stringFile)
                     {
                         // разделяем строку на подстроки по ";"
-                        string[] separatore = { ";", "," };
+                        string[] separatore = { ";"};
                         list = (str.Split(separatore, StringSplitOptions.RemoveEmptyEntries));
 
                         // выполняем команду, записываем строки в базу данных
                         using (SqlCommand cmd = new SqlCommand(sql, cnn))
                         {
-                            // @handl_f, @blockName_f, @blockX_f,
-                            // @blockY_f], @blockZ_f, @layerName_f
+                            //" values(@handl_f, @blockName_f, @cableName_f," +
+                            //"@cableStart_f, @cableEnd_f, @cableFans_f, @cableDescr_f," +
+                            //"@blockX_f, @blockY_f, @blockZ_f, @layerName_f )";
                             // получение и установка параметров для передачи в sql запрос
+                            // почему перемешано, вот так бля.....
                             cmd.Parameters.Add("@handl_f", SqlDbType.NVarChar).Value = list[0].ToString();
                             cmd.Parameters.Add("@blockName_f", SqlDbType.NVarChar).Value = list[1].ToString();
-                            cmd.Parameters.Add("@cableName", SqlDbType.NVarChar).Value = list[2].ToString();
+                            cmd.Parameters.Add("@cableName_f", SqlDbType.NVarChar).Value = list[2].ToString();
                             cmd.Parameters.Add("@blockX_f", SqlDbType.NVarChar).Value = list[3].ToString();
                             cmd.Parameters.Add("@blockY_f", SqlDbType.NVarChar).Value = list[4].ToString();
                             cmd.Parameters.Add("@blockZ_f", SqlDbType.NVarChar).Value = list[5].ToString();
                             cmd.Parameters.Add("@layerName_f", SqlDbType.NVarChar).Value = list[6].ToString();
+                            cmd.Parameters.Add("@cableStart_f", SqlDbType.NVarChar).Value = list[7].ToString();
+                            cmd.Parameters.Add("@cableEnd_f", SqlDbType.NVarChar).Value = list[8].ToString();
+                            cmd.Parameters.Add("@cableFans_f", SqlDbType.NVarChar).Value = list[9].ToString();
+                            cmd.Parameters.Add("@cableDescr_f", SqlDbType.NVarChar).Value = list[10].ToString();
+
 
                             // Let's ask the db to execute the query
                             // Давайте попросим базу данных выполнить запрос

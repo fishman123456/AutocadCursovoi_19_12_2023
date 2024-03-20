@@ -43,5 +43,11 @@ namespace AutocadCursovoi_19_12_2023
             //MessageBox.Show(" ID: " + path.Id + "\n Исполнитель: " + path.Vocalist + "\n Альбом: " + path.Album
             //    + "\n Год: " + path.Year);
         }
+
+        private void clear_Click(object sender, RoutedEventArgs e)
+        {
+            stringsdata.Clear();
+            MessageBox.Show("Список очищен" + DateTime.Now.ToString());
+        }
     }
 }

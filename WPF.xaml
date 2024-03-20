@@ -9,6 +9,18 @@
         Title="Список блоков" 
         WindowStartupLocation="CenterScreen" SizeToContent="Width" Height="400">
     <Grid Margin="10">
-        <TextBox x:Name="grid"  Margin="5" Loaded="grid_Loaded" MouseUp="grid_MouseUp" VerticalScrollBarVisibility="Auto"/>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <TextBox x:Name="grid" Grid.ColumnSpan="3" Grid.RowSpan="3" Margin="5" Loaded="grid_Loaded" MouseUp="grid_MouseUp" VerticalScrollBarVisibility="Auto"/>
+        <Button x:Name="clear" Content="очистить список" Grid.Column="2" Grid.Row="3" Margin="3" FontSize="12" Click="clear_Click"></Button>
     </Grid>
 </Window>

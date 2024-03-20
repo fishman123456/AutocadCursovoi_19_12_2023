@@ -65,43 +65,69 @@ namespace ACADCommands
                 int countBlock = 0;
                 // перебираем блоки
                 foreach (ObjectId blkId in idArray)
-                {   
+                {
                     // ссылки на таблицу существующих блоков 
                     BlockReference blkRef = (BlockReference)tr.GetObject(blkId, OpenMode.ForRead);
                     // ссылка на таблицу блоков
                     BlockTableRecord btr = (BlockTableRecord)tr.GetObject(blkRef.BlockTableRecord, OpenMode.ForRead);
                     // выбирам из коллекции атрибутов по ссылкам на блоки
                     AttributeCollection attCol = blkRef.AttributeCollection;
-                    
+
                     // Перебираем аттрибуты
                     foreach (ObjectId blkAttId in attCol)
                     {
                         // открываем таблицу аттрибутов для чтения 
                         AttributeReference attRef = (AttributeReference)tr.GetObject(blkAttId, OpenMode.ForRead);
-                       
+
                         //  выводим координаты блока,слой и handle
                         if (attRef.Tag == "ОБОЗНАЧ_КАБЕЛЯ" && attRef.TextString != "")
                         {
-                            countBlock++;
-                            string str = ("\n" +
+                            stringBuilder.Append("\n" +
                                            //"Handle BlockRef : " + 
                                            blkRef.Handle.ToString() + ";" + // вот нужная фигня - Handle
-                                                                            //"Block name: " + 
-                                           btr.Name + ";" +
-                                           //"Attribute String: " + 
-                                           attRef.TextString + ";" +
-                                           //"X: " + 
-                                           blkRef.Position.X.ToString() + ";" +
-                                           //"Y: " + 
-                                           blkRef.Position.Y.ToString() + ";" +
-                                           //"Z: " + 
-                                           blkRef.Position.Z.ToString() + ";" +
-                                           //"Layer: " + 
-                                           blkRef.Layer.ToString());
-                            stringBuilder.Append(str);
-                            ed.WriteMessage(str);
+                                            btr.Name + ";");               //"Block name: " имя блока
+                            stringBuilder.Append(
+                                       //"Attribute String: " + 
+                                       attRef.TextString + ";" +
+                                       //"X: " + 
+                                       blkRef.Position.X.ToString() + ";" +
+                                       //"Y: " + 
+                                       blkRef.Position.Y.ToString() + ";" +
+                                       //"Z: " + 
+                                       blkRef.Position.Z.ToString() + ";" +
+                                       //"Layer: " + 
+                                       blkRef.Layer.ToString() + ";");
                         }
+                        if (attRef.Tag == "НАЧАЛО" && attRef.TextString != "")
+                        {
+                            //"Attribute String: " + 
+                            stringBuilder.Append(attRef.TextString + ";");
+                        }
+                        if (attRef.Tag == "КОНЕЦ" && attRef.TextString != "")
+                        {
+                            //"Attribute String: " + 
+                            stringBuilder.Append(attRef.TextString + ";");
+                        }
+                        // для блоков на планы
+                        if (attRef.Tag == "НАИМЕНОВАНИЕ" && attRef.TextString != "")
+                        {
+                            //"Attribute String: " + 
+                            stringBuilder.Append(attRef.TextString + ";");
+                        }
+                        // для блоков схема
+                        if (attRef.Tag == "Труба" && attRef.TextString != "")
+                        {
+                            //"Attribute String: " + 
+                            stringBuilder.Append(attRef.TextString + ";");
+                        }
+                        if (attRef.Tag == "Примечание" && attRef.TextString != "")
+                        {
+                            //"Attribute String: " + 
+                            stringBuilder.Append(attRef.TextString + ";");
+                        }
+                        countBlock++;
                     }
+                    ed.WriteMessage(stringBuilder.ToString());
                 }
                 tr.Commit();
                 ed.WriteMessage($"\nКол-во блоков с аттрибутом = {countBlock}\n{DateTime.Now.ToString()}\n");
@@ -135,7 +161,7 @@ namespace ACADCommands
                         break;
                 }
                 #endregion
-               
+
                 // диалог с вызовом сохранения в базу данных
                 #region
                 string sMessageBoxText = "Сохранить в базу данных ?";
