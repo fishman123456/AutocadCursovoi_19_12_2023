@@ -98,32 +98,42 @@ namespace ACADCommands
                                        //"Layer: " + 
                                        blkRef.Layer.ToString() + ";");
                         }
-                        if (attRef.Tag == "НАЧАЛО" )
+                        if (attRef.Tag == "НАЧАЛО")
                         {
+                            if(attRef.TextString == "") { stringBuilder.Append("-" + ";"); }
+                            else 
                             //"Attribute String: " + 
                             stringBuilder.Append(attRef.TextString + ";");
                         }
                         if (attRef.Tag == "КОНЕЦ")
                         {
-                            //"Attribute String: " + 
-                            stringBuilder.Append(attRef.TextString + ";");
+                            if (attRef.TextString == "") { stringBuilder.Append("-" + ";"); }
+                            else
+                                //"Attribute String: " + 
+                                stringBuilder.Append(attRef.TextString + ";");
                         }
                         // для блоков на планы
                         if (attRef.Tag == "НАИМЕНОВАНИЕ")
                         {
-                            //"Attribute String: " + 
-                            stringBuilder.Append(attRef.TextString + ";");
+                            if (attRef.TextString == "") { stringBuilder.Append("-" + ";"); }
+                            else
+                                //"Attribute String: " + 
+                                stringBuilder.Append(attRef.TextString + ";");
                         }
                         // для блоков схема
                         if (attRef.Tag == "Труба")
                         {
-                            //"Attribute String: " + 
-                            stringBuilder.Append(attRef.TextString + ";");
+                            if (attRef.TextString == "") { stringBuilder.Append("-" + ";"); }
+                            else
+                                //"Attribute String: " + 
+                                stringBuilder.Append(attRef.TextString + ";");
                         }
                         if (attRef.Tag == "Примечание")
                         {
-                            //"Attribute String: " + 
-                            stringBuilder.Append(attRef.TextString + ";");
+                            if (attRef.TextString == "") { stringBuilder.Append("-" + ";"); }
+                            else
+                                //"Attribute String: " + 
+                                stringBuilder.Append(attRef.TextString + ";");
                         }
                         countBlock++;
                     }
@@ -142,7 +152,7 @@ namespace ACADCommands
                 // запишем в файл
                 // диалог с вызовом сохранения в *.csv
                 #region
-                string sMessageBoxTextc = "Сохранить в *.txt ?";
+                string sMessageBoxTextc = "Сохранить в *.csv ?";
                 string sCaptionc = "Используйте если у вас установлен microsoft office";
                 MessageBoxButton btnMessageBoxc = MessageBoxButton.YesNoCancel;
                 MessageBoxImage icnMessageBoxc = MessageBoxImage.Warning;
@@ -150,8 +160,8 @@ namespace ACADCommands
                 switch (rsltMessageBoxc)
                 {
                     case MessageBoxResult.Yes:
-                        SaveTxt saveFileCSV = new SaveTxt();
-                        saveFileCSV.saveTxt(stringBuilder.ToString());
+                        SaveCsv saveFileCSV = new SaveCsv();
+                        saveFileCSV.saveCsv(stringBuilder.ToString());
                         break;
                     case MessageBoxResult.No:
                         /* ... */

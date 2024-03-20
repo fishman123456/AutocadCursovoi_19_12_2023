@@ -3,24 +3,24 @@
   "WorkspaceRootPath": "D:\\Github\\AutocadCursovoi_19_12_2023\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9507C63C-4E34-455B-985F-A025AF78AA01}|AutocadCursovoi_19_12_2023.csproj|D:\\Github\\AutocadCursovoi_19_12_2023\\getblockpoz.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{9507C63C-4E34-455B-985F-A025AF78AA01}|AutocadCursovoi_19_12_2023.csproj|d:\\github\\autocadcursovoi_19_12_2023\\getblockpoz.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9507C63C-4E34-455B-985F-A025AF78AA01}|AutocadCursovoi_19_12_2023.csproj|solutionrelative:getblockpoz.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9507C63C-4E34-455B-985F-A025AF78AA01}|AutocadCursovoi_19_12_2023.csproj|D:\\Github\\AutocadCursovoi_19_12_2023\\addtodatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9507C63C-4E34-455B-985F-A025AF78AA01}|AutocadCursovoi_19_12_2023.csproj|solutionrelative:addtodatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9507C63C-4E34-455B-985F-A025AF78AA01}|AutocadCursovoi_19_12_2023.csproj|D:\\Github\\AutocadCursovoi_19_12_2023\\quicksaveas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9507C63C-4E34-455B-985F-A025AF78AA01}|AutocadCursovoi_19_12_2023.csproj|solutionrelative:quicksaveas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{9507C63C-4E34-455B-985F-A025AF78AA01}|AutocadCursovoi_19_12_2023.csproj|D:\\Github\\AutocadCursovoi_19_12_2023\\savecsv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9507C63C-4E34-455B-985F-A025AF78AA01}|AutocadCursovoi_19_12_2023.csproj|solutionrelative:savecsv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{9507C63C-4E34-455B-985F-A025AF78AA01}|AutocadCursovoi_19_12_2023.csproj|D:\\Github\\AutocadCursovoi_19_12_2023\\checkdatework.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9507C63C-4E34-455B-985F-A025AF78AA01}|AutocadCursovoi_19_12_2023.csproj|solutionrelative:checkdatework.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9507C63C-4E34-455B-985F-A025AF78AA01}|AutocadCursovoi_19_12_2023.csproj|d:\\github\\autocadcursovoi_19_12_2023\\addtodatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9507C63C-4E34-455B-985F-A025AF78AA01}|AutocadCursovoi_19_12_2023.csproj|solutionrelative:addtodatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9507C63C-4E34-455B-985F-A025AF78AA01}|AutocadCursovoi_19_12_2023.csproj|d:\\github\\autocadcursovoi_19_12_2023\\savecsv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9507C63C-4E34-455B-985F-A025AF78AA01}|AutocadCursovoi_19_12_2023.csproj|solutionrelative:savecsv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9507C63C-4E34-455B-985F-A025AF78AA01}|AutocadCursovoi_19_12_2023.csproj|D:\\Github\\AutocadCursovoi_19_12_2023\\wpf.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -42,7 +42,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 17,
+          "SelectedChildIndex": 11,
           "Children": [
             {
               "$type": "Bookmark",
@@ -90,7 +90,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": "GetBlockPoz.cs",
+              "DocumentMoniker": "D:\\Github\\AutocadCursovoi_19_12_2023\\GetBlockPoz.cs",
+              "RelativeDocumentMoniker": "GetBlockPoz.cs",
+              "ToolTip": "D:\\Github\\AutocadCursovoi_19_12_2023\\GetBlockPoz.cs",
+              "RelativeToolTip": "GetBlockPoz.cs",
+              "ViewState": "AQIAAHMAAAAAAAAAAAAAAFkAAAA7AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-20T05:21:59.918Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "QuickSaveAs.cs",
               "DocumentMoniker": "D:\\Github\\AutocadCursovoi_19_12_2023\\QuickSaveAs.cs",
               "RelativeDocumentMoniker": "QuickSaveAs.cs",
@@ -103,26 +116,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "SaveCsv.cs",
               "DocumentMoniker": "D:\\Github\\AutocadCursovoi_19_12_2023\\SaveCsv.cs",
               "RelativeDocumentMoniker": "SaveCsv.cs",
               "ToolTip": "D:\\Github\\AutocadCursovoi_19_12_2023\\SaveCsv.cs",
               "RelativeToolTip": "SaveCsv.cs",
-              "ViewState": "AQIAABwAAAAAAAAAAAAgwCkAAAARAAAA",
+              "ViewState": "AQIAAA0AAAAAAAAAAAAAACAAAAApAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-20T05:21:59.913Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "CheckDateWork.cs",
               "DocumentMoniker": "D:\\Github\\AutocadCursovoi_19_12_2023\\CheckDateWork.cs",
               "RelativeDocumentMoniker": "CheckDateWork.cs",
               "ToolTip": "D:\\Github\\AutocadCursovoi_19_12_2023\\CheckDateWork.cs",
               "RelativeToolTip": "CheckDateWork.cs",
-              "ViewState": "AQIAAAgAAAAAAAAAAAAowCwAAAAIAAAA",
+              "ViewState": "AQIAAB0AAAAAAAAAAAAAACwAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-20T05:21:59.915Z",
               "EditorCaption": ""
@@ -137,8 +150,7 @@
               "RelativeToolTip": "App.config",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2024-03-20T05:21:59.916Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-20T05:21:59.916Z"
             },
             {
               "$type": "Document",
@@ -162,31 +174,17 @@
               "ToolTip": "D:\\Github\\AutocadCursovoi_19_12_2023\\WPF.xaml",
               "RelativeToolTip": "WPF.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-03-20T05:21:59.917Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-20T05:21:59.917Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "GetBlockPoz.cs",
-              "DocumentMoniker": "D:\\Github\\AutocadCursovoi_19_12_2023\\GetBlockPoz.cs",
-              "RelativeDocumentMoniker": "GetBlockPoz.cs",
-              "ToolTip": "D:\\Github\\AutocadCursovoi_19_12_2023\\GetBlockPoz.cs",
-              "RelativeToolTip": "GetBlockPoz.cs",
-              "ViewState": "AQIAAGgAAAAAAAAAAAAAAHQAAAArAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-20T05:21:59.918Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "AddToDataBase.cs",
               "DocumentMoniker": "D:\\Github\\AutocadCursovoi_19_12_2023\\AddToDataBase.cs",
               "RelativeDocumentMoniker": "AddToDataBase.cs",
               "ToolTip": "D:\\Github\\AutocadCursovoi_19_12_2023\\AddToDataBase.cs",
               "RelativeToolTip": "AddToDataBase.cs",
-              "ViewState": "AQIAABMAAAAAAAAAAAAiwEUAAAATAAAA",
+              "ViewState": "AQIAAGYAAAAAAAAAAAAAAEUAAAATAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-20T05:21:59.915Z",
               "EditorCaption": ""

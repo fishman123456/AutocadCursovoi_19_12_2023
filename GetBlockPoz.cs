@@ -78,7 +78,14 @@ namespace ACADCommands
                     {
                         // открываем таблицу аттрибутов для чтения 
                         AttributeReference attRef = (AttributeReference)tr.GetObject(blkAttId, OpenMode.ForRead);
-
+                        // для блоков на планы
+                        if (attRef.Tag == "НАИМЕНОВАНИЕ")
+                        {
+                            if (attRef.TextString == "") { stringBuilder.Append("-" + ";"); }
+                            else
+                                //"Attribute String: " + 
+                                stringBuilder.Append(attRef.TextString + ";");
+                        }
                         //  выводим координаты блока,слой и handle
                         if (attRef.Tag == "ОБОЗНАЧ_КАБЕЛЯ")
                         {
@@ -98,32 +105,35 @@ namespace ACADCommands
                                        //"Layer: " + 
                                        blkRef.Layer.ToString() + ";");
                         }
-                        if (attRef.Tag == "НАЧАЛО" )
+                        if (attRef.Tag == "НАЧАЛО")
                         {
+                            if(attRef.TextString == "") { stringBuilder.Append("-" + ";"); }
+                            else 
                             //"Attribute String: " + 
                             stringBuilder.Append(attRef.TextString + ";");
                         }
                         if (attRef.Tag == "КОНЕЦ")
                         {
-                            //"Attribute String: " + 
-                            stringBuilder.Append(attRef.TextString + ";");
+                            if (attRef.TextString == "") { stringBuilder.Append("-" + ";"); }
+                            else
+                                //"Attribute String: " + 
+                                stringBuilder.Append(attRef.TextString + ";");
                         }
-                        // для блоков на планы
-                        if (attRef.Tag == "НАИМЕНОВАНИЕ")
-                        {
-                            //"Attribute String: " + 
-                            stringBuilder.Append(attRef.TextString + ";");
-                        }
+                        
                         // для блоков схема
                         if (attRef.Tag == "Труба")
                         {
-                            //"Attribute String: " + 
-                            stringBuilder.Append(attRef.TextString + ";");
+                            if (attRef.TextString == "") { stringBuilder.Append("-" + ";"); }
+                            else
+                                //"Attribute String: " + 
+                                stringBuilder.Append(attRef.TextString + ";");
                         }
                         if (attRef.Tag == "Примечание")
                         {
-                            //"Attribute String: " + 
-                            stringBuilder.Append(attRef.TextString + ";");
+                            if (attRef.TextString == "") { stringBuilder.Append("-" + ";"); }
+                            else
+                                //"Attribute String: " + 
+                                stringBuilder.Append(attRef.TextString + ";");
                         }
                         countBlock++;
                     }
