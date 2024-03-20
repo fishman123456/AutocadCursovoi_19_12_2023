@@ -1,15 +1,26 @@
 ﻿using AutocadCursovoi_19_12_2023;
 using System;
 using System.IO;
+using System.Text;
 using System.Windows.Forms;
 
 namespace ACADCommands
 {
-    public class SaveCSV
+    public class SaveCsv
     {
-        public async void saveCSV(string text)
+        public async void saveCsv(string text)
         {
-            
+            // для русских букв в екселе подключить NUGET
+            // NuGet\Install-Package
+            // Вот нужный пакет 
+
+            // System.Text.Encoding.CodePages
+
+            // Вот нужный пакет 
+            // -Version 8.0.0
+            // Register the CodePages encoding provider at application startup to enable using single and double byte encodings.
+            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+
             // проверка по текущей дате
             CheckDateWork.CheckDate();
             // открываем диалог для сохранения файла в поток
@@ -23,18 +34,12 @@ namespace ACADCommands
             // сохраняем текст в файл
             try
             {
-                // полная перезапись файла 
-                using (StreamWriter writer = new StreamWriter(path, false))
+                // полная перезапись файла  new FileStream(path, FileMode.OpenOrCreate), Encoding.GetEncoding(1251))
+                using (StreamWriter writer = new StreamWriter(path, false, Encoding.GetEncoding(1251)))
                 {
                     // асинхронная перезапись  файла
                     await writer.WriteAsync(text);
                 }
-                // добавление в файл
-                //using (StreamWriter writer = new StreamWriter(path, true))
-                //{
-                //    await writer.WriteLineAsync("Addition");
-                //    await writer.WriteAsync("4,5");
-                //}
             }
             catch (Exception ex)
             {

@@ -80,7 +80,7 @@ namespace ACADCommands
                         AttributeReference attRef = (AttributeReference)tr.GetObject(blkAttId, OpenMode.ForRead);
 
                         //  выводим координаты блока,слой и handle
-                        if (attRef.Tag == "ОБОЗНАЧ_КАБЕЛЯ" && attRef.TextString != "")
+                        if (attRef.Tag == "ОБОЗНАЧ_КАБЕЛЯ")
                         {
                             stringBuilder.Append("\n" +
                                            //"Handle BlockRef : " + 
@@ -98,29 +98,29 @@ namespace ACADCommands
                                        //"Layer: " + 
                                        blkRef.Layer.ToString() + ";");
                         }
-                        if (attRef.Tag == "НАЧАЛО" && attRef.TextString != "")
+                        if (attRef.Tag == "НАЧАЛО" )
                         {
                             //"Attribute String: " + 
                             stringBuilder.Append(attRef.TextString + ";");
                         }
-                        if (attRef.Tag == "КОНЕЦ" && attRef.TextString != "")
+                        if (attRef.Tag == "КОНЕЦ")
                         {
                             //"Attribute String: " + 
                             stringBuilder.Append(attRef.TextString + ";");
                         }
                         // для блоков на планы
-                        if (attRef.Tag == "НАИМЕНОВАНИЕ" && attRef.TextString != "")
+                        if (attRef.Tag == "НАИМЕНОВАНИЕ")
                         {
                             //"Attribute String: " + 
                             stringBuilder.Append(attRef.TextString + ";");
                         }
                         // для блоков схема
-                        if (attRef.Tag == "Труба" && attRef.TextString != "")
+                        if (attRef.Tag == "Труба")
                         {
                             //"Attribute String: " + 
                             stringBuilder.Append(attRef.TextString + ";");
                         }
-                        if (attRef.Tag == "Примечание" && attRef.TextString != "")
+                        if (attRef.Tag == "Примечание")
                         {
                             //"Attribute String: " + 
                             stringBuilder.Append(attRef.TextString + ";");
@@ -150,8 +150,8 @@ namespace ACADCommands
                 switch (rsltMessageBoxc)
                 {
                     case MessageBoxResult.Yes:
-                        SaveCSV saveFileCSV = new SaveCSV();
-                        saveFileCSV.saveCSV(stringBuilder.ToString());
+                        SaveCsv saveFileCSV = new SaveCsv();
+                        saveFileCSV.saveCsv(stringBuilder.ToString());
                         break;
                     case MessageBoxResult.No:
                         /* ... */

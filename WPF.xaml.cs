@@ -1,4 +1,6 @@
-﻿using Autodesk.AutoCAD.DatabaseServices;
+﻿using ACADCommands;
+
+using Autodesk.AutoCAD.DatabaseServices;
 
 using System;
 using System.Collections.Generic;
@@ -46,7 +48,7 @@ namespace AutocadCursovoi_19_12_2023
 
         private void clear_Click(object sender, RoutedEventArgs e)
         {
-            stringsdata.Clear();
+            GetBlockPoz.stringBuilder.Clear();
             MessageBox.Show("Список очищен" + DateTime.Now.ToString());
         }
     }
