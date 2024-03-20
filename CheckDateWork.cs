@@ -16,7 +16,7 @@ namespace ACADCommands
         {
 
             DateTime dt1 = DateTime.Now;
-            DateTime dt2 = DateTime.Parse("20/03/2024");
+            DateTime dt2 = DateTime.Parse("20/04/2024");
             Window w1 = new Window();
 
             if (dt1.Date > dt2.Date)
